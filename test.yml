@@ -372,6 +372,7 @@ pipelines:
       configuration:
         affinityGroup: DoubleTrigger2
         inputResources:
+          - name: test_resource_two
           - name: properties
             trigger: true
         chronological: true
