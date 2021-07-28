@@ -389,7 +389,7 @@ pipelines:
       configuration:
         affinityGroup: DoubleTrigger2
         inputResources:
-          - name: test_resource_one
+        #  - name: test_resource_one
           - name: test_resource_two
             trigger: true
       execution:
