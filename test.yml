@@ -307,37 +307,37 @@ pipelines:
   - name: DoubleTrigger
     steps:
     
-      - name: Gradle
-        type: Bash
-        configuration:
-          integrations:
-            - name: aidan_artifactory
-          inputResources:
-            - name: fileSpecFile
-          environmentVariables:
-            buildDir: 5testRename5
-            resolverRepo: myResolverRepo
-            deployerRepo: myDeployerRepo
-            gradleCommand: myGradleCommand
-        execution:
-          onExecute:
-            - jfrog --version
-            - jfrog rt use artifactoryIntegrationName
-            - git clone https://github.com/a-murphy/5testRename5.git
-            - pushd "$buildDir"
-            - |
-              filePath=$(find_resource_variable "fileSpecFile" resourcePath)/*
-              cp -r $filePath .
-            - jfrog rt gradle-config --server-id-resolve artifactoryIntegrationName --repo-resolve "$resolverRepo" --server-id-deploy artifactoryIntegrationName --repo-deploy "$deployerRepo" --uses-plugin=true --use-wrapper=true
-            - jfrog rt gradle $gradleCommand
-            - popd
-            - jfrog rt build-collect-env "$JFROG_CLI_BUILD_NAME" "$JFROG_CLI_BUILD_NUMBER"
-            - |
-              if [ -z "$JFROG_CLI_ENV_EXCLUDE" ]; then
-                export JFROG_CLI_ENV_EXCLUDE="buildinfo.env.res_*;buildinfo.env.int_*;buildinfo.env.current_*;*password*;*secret*;*key*;*token*"
-              fi
-            - retry_command jfrog rt build-publish --insecure-tls=$no_verify_ssl $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
-            - write_output $outputBuildInfoResourceName buildName=$JFROG_CLI_BUILD_NAME buildNumber=$JFROG_CLI_BUILD_NUMBER
+    - name: Gradle
+      type: Bash
+      configuration:
+        integrations:
+          - name: aidan_artifactory
+        inputResources:
+          - name: fileSpecFile
+        environmentVariables:
+          buildDir: 5testRename5
+          resolverRepo: myResolverRepo
+          deployerRepo: myDeployerRepo
+          gradleCommand: myGradleCommand
+      execution:
+        onExecute:
+          - jfrog --version
+          - jfrog rt use artifactoryIntegrationName
+          - git clone https://github.com/a-murphy/5testRename5.git
+          - pushd "$buildDir"
+          - |
+            filePath=$(find_resource_variable "fileSpecFile" resourcePath)/*
+            cp -r $filePath .
+          - jfrog rt gradle-config --server-id-resolve artifactoryIntegrationName --repo-resolve "$resolverRepo" --server-id-deploy artifactoryIntegrationName --repo-deploy "$deployerRepo" --uses-plugin=true --use-wrapper=true
+          - jfrog rt gradle $gradleCommand
+          - popd
+          - jfrog rt build-collect-env "$JFROG_CLI_BUILD_NAME" "$JFROG_CLI_BUILD_NUMBER"
+          - |
+            if [ -z "$JFROG_CLI_ENV_EXCLUDE" ]; then
+              export JFROG_CLI_ENV_EXCLUDE="buildinfo.env.res_*;buildinfo.env.int_*;buildinfo.env.current_*;*password*;*secret*;*key*;*token*"
+            fi
+          - retry_command jfrog rt build-publish --insecure-tls=$no_verify_ssl $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
+          - write_output $outputBuildInfoResourceName buildName=$JFROG_CLI_BUILD_NAME buildNumber=$JFROG_CLI_BUILD_NUMBER
 
     - name: stepOne
       type: Bash
