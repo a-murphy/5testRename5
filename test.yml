@@ -312,8 +312,6 @@ pipelines:
       configuration:
         integrations:
           - name: aidan_artifactory
-        inputResources:
-          - name: fileSpecFile
         environmentVariables:
           buildDir: 5testRename5
           resolverRepo: myResolverRepo
@@ -325,9 +323,6 @@ pipelines:
           - jfrog rt use artifactoryIntegrationName
           - git clone https://github.com/a-murphy/5testRename5.git
           - pushd "$buildDir"
-          - |
-            filePath=$(find_resource_variable "fileSpecFile" resourcePath)/*
-            cp -r $filePath .
           - jfrog rt gradle-config --server-id-resolve artifactoryIntegrationName --repo-resolve "$resolverRepo" --server-id-deploy artifactoryIntegrationName --repo-deploy "$deployerRepo" --uses-plugin=true --use-wrapper=true
           - jfrog rt gradle $gradleCommand
           - popd
