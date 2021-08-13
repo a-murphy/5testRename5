@@ -320,10 +320,10 @@ pipelines:
       execution:
         onExecute:
           - jfrog --version
-          - jfrog rt use artifactoryIntegrationName
+          - jfrog config use aidan_artifactory
           - git clone https://github.com/a-murphy/5testRename5.git
           - pushd "$buildDir"
-          - jfrog rt gradle-config --server-id-resolve artifactoryIntegrationName --repo-resolve "$resolverRepo" --server-id-deploy artifactoryIntegrationName --repo-deploy "$deployerRepo" --uses-plugin=true --use-wrapper=true
+          - jfrog rt gradle-config --server-id-resolve aidan_artifactory --repo-resolve "$resolverRepo" --server-id-deploy aidan_artifactory --repo-deploy "$deployerRepo" --uses-plugin=true --use-wrapper=true
           - jfrog rt gradle $gradleCommand
           - popd
           - jfrog rt build-collect-env "$JFROG_CLI_BUILD_NAME" "$JFROG_CLI_BUILD_NUMBER"
