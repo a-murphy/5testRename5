@@ -17,13 +17,6 @@ pipelines:
           - name: terraformGitRepo
         integrations:
           - name: aidan_AWS
-        runtime:
-          type: image
-          image:
-            custom:
-              name: <string>                    # imageRepo/imageName format
-              tag: <string>                     # version tag of the initial version of the Docker image
-              options: "-e HOME=/root"        # Docker options
       execution:
         onExecute:
           - wget -nv https://releases.hashicorp.com/terraform/1.0.4/terraform_1.0.4_linux_amd64.zip
