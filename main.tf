@@ -4,8 +4,6 @@ provider "aws" {
 
 provider "aws" {
   assume_role {
-    role_arn     = "arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME"
-    session_name = "SESSION_NAME"
-    external_id  = "EXTERNAL_ID"
+    role_arn = "arn:aws:iam::544102397216:role/newAWSPermissionsRole"
   }
 }
