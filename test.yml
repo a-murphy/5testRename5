@@ -1,12 +1,24 @@
+resources:
+  - name: terraformGitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: aidan_github
+      path: a-murphy/5testRename5
+      branches:
+        include: Terraform
+
 pipelines:
   - name: Terraform
     steps:
     - name: terraform
       type: Bash
       configuration:
+        inputResources:
+          - name: terraformGitRepo
         integrations:
           - name: aidan_AWS
       execution:
         onExecute:
+          - cd $res_terraformGitRepo_resourcePath
           - terraform init
           - terraform plan
