@@ -24,6 +24,7 @@ pipelines:
           - sudo chmod +x /tmp/terraform/terraform
           - mv /tmp/terraform/terraform /usr/bin/terraform
           - cd $res_terraformGitRepo_resourcePath
+          - export AWS_DEFAULT_REGION="us-east-2"
           - chmod +x main.tf
           - terraform init
           - terraform plan
