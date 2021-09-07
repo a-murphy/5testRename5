@@ -310,8 +310,8 @@ pipelines:
     - name: Gradle
       type: Bash
       configuration:
-        integrations:
-          - name: s_artifactory
+     #   integrations:
+     #     - name: s_artifactory
         environmentVariables:
           buildDir: 5testRename5
           resolverRepo: myResolverRepo
@@ -327,6 +327,7 @@ pipelines:
               sourceRepository: docker-remote
       execution:
         onExecute:
+          - ls -alR $custom_certs_dir
           - jfrog --version
           - jfrog config use aidan_artifactory
           - git clone https://github.com/a-murphy/5testRename5.git
