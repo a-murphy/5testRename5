@@ -311,7 +311,7 @@ pipelines:
       type: Bash
       configuration:
         integrations:
-          - name: aidan_artifactory
+          - name: s_artifactory
         environmentVariables:
           buildDir: 5testRename5
           resolverRepo: myResolverRepo
