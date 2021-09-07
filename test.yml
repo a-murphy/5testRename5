@@ -316,7 +316,9 @@ pipelines:
           buildDir: 5testRename5
           resolverRepo: myResolverRepo
           deployerRepo: myDeployerRepo
-          gradleCommand: myGradleCommand
+          gradleCommand: myGradleCommand 
+        runtime:            
+          type: host
       execution:
         onExecute:
           - jfrog --version
