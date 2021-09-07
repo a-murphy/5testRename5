@@ -321,7 +321,7 @@ pipelines:
           type: image
           image:
             custom:
-              name: https://172.31.5.81:8082/docker-remote/jfrog/pipelines-u18node
+              name: 172.31.5.81:8082/docker-remote/jfrog/pipelines-u18node
               tag: "12.18.2"
               registry: s_artifactory
               sourceRepository: docker-remote
