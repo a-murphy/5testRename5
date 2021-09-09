@@ -67,9 +67,9 @@ pipelines:
     steps:
       - name: in_trigger_step
         type: Bash
-        configuration:
-          integrations:
-            - name: aidan_artifactory
+ #       configuration:
+ #         integrations:
+ #           - name: aidan_artifactory
         execution:
           onExecute:
             - echo "executing task command 1"
