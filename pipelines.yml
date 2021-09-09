@@ -5,9 +5,9 @@ resources:
       gitProvider: aidan_github
       path: a-murphy/5testRename5
 #      shallowDepth: 10
-#      buildOn:
-#        pullRequestClose: true
-#        pullRequestCreate: true
+      buildOn:
+        pullRequestClose: true
+        pullRequestCreate: true
 #        releaseCreate: true
 #        tagCreate: true
    #   cancelPendingRunsOn:
@@ -118,9 +118,9 @@ pipelines:
   #      execution:
   #        onExecute:
   #          - echo "executing task command 1"
- # - name: test_powershell_repos
- #   configuration:
- #     nodePool: w2019
+  - name: test_powershell_repos
+    configuration:
+      nodePool: win_2019
  #   steps:
  #     - name: in_trigger_step
  #       type: PowerShell
@@ -129,18 +129,18 @@ pipelines:
  #           - echo "executing task command 1"
  #           - echo "executing task command 2"
 
- #     - name: githubStep
- #       type: PowerShell
- #       configuration:
+      - name: githubStep
+        type: PowerShell
+        configuration:
  #         integrations:
  #           - name: aidan_artifactory
  #         inputSteps:
  #           - name: in_trigger_step
- #         inputResources:
- #           - name: gitHubRepoResource
- #       execution:
- #         onExecute:
- #           - echo "executing task command 1"
+          inputResources:
+            - name: gitHubRepoResource
+        execution:
+          onExecute:
+            - echo "executing task command 1"
             
  #     - name: gitlabStep
  #       type: PowerShell
