@@ -6,7 +6,7 @@ resources:
       path: a-murphy/5testRename5
 #      shallowDepth: 10
       buildOn:
-        pullRequestClose: true
+ #       pullRequestClose: true
         pullRequestCreate: true
 #        releaseCreate: true
 #        tagCreate: true
