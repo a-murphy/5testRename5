@@ -132,8 +132,8 @@ pipelines:
       - name: githubStep
         type: PowerShell
         configuration:
- #         integrations:
- #           - name: aidan_artifactory
+          integrations:
+            - name: aidan_artifactory
  #         inputSteps:
  #           - name: in_trigger_step
           inputResources:
