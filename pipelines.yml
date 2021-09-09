@@ -136,8 +136,8 @@ pipelines:
             - name: aidan_artifactory
  #         inputSteps:
  #           - name: in_trigger_step
-          inputResources:
-            - name: gitHubRepoResource
+ #         inputResources:
+ #           - name: gitHubRepoResource
         execution:
           onExecute:
             - echo "executing task command 1"
