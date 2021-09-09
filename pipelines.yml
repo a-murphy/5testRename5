@@ -121,7 +121,7 @@ pipelines:
   - name: test_powershell_repos
     configuration:
       nodePool: win_2019
- #   steps:
+    steps:
  #     - name: in_trigger_step
  #       type: PowerShell
  #       execution:
