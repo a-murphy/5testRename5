@@ -357,7 +357,7 @@ pipelines:
         inputResources:
           - name: properties
             trigger: true
-          - name: execTemplatesAQL
+     #     - name: execTemplatesAQL
      #     - name: examples_repo
           - name: gitRepoResourceAuto
         chronological: true
