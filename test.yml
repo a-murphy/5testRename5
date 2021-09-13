@@ -55,6 +55,13 @@ resources:
    #     pullRequestUpdate: true
      # tags:
      #   include: include.*
+  - name: gitRepoResourceAuto
+    type: GitRepo
+    configuration:
+      gitProvider: aidan_github
+      path: a-murphy/Org_test_Automation
+      branches:
+        include: master
 #  - name: gitlabRepoResource
 #    type: GitRepo
 #    configuration:
@@ -352,10 +359,12 @@ pipelines:
             trigger: true
           - name: execTemplatesAQL
      #     - name: examples_repo
+          - name: gitRepoResourceAuto
         chronological: true
       execution:
         onStart:
           - sleep 2
+          - add_run_files $res_gitRepoResourceAuto_resourcePath test
     - name: stepThree
       type: Bash
       configuration:
