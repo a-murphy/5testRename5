@@ -1,7 +1,40 @@
 pipelines:
-  - name: basic
+  - name: basic1
     steps:
-      - name: basic1
+      - name: basic
+        type: Bash
+        configuration:
+          runtime:
+            type: image
+        execution:
+          onExecute:
+            - printenv {{ .Values.test }}
+            
+  - name: basic2
+    steps:
+      - name: basic
+        type: Bash
+        configuration:
+          runtime:
+            type: image
+        execution:
+          onExecute:
+            - printenv {{ .Values.test }}
+            
+  - name: basic3
+    steps:
+      - name: basic
+        type: Bash
+        configuration:
+          runtime:
+            type: image
+        execution:
+          onExecute:
+            - printenv {{ .Values.test }}
+            
+  - name: basic4
+    steps:
+      - name: basic
         type: Bash
         configuration:
           runtime:
