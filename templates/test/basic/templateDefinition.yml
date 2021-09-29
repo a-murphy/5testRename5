@@ -8,7 +8,7 @@ pipelines:
             type: image
         execution:
           onExecute:
-            - printenv {{ .Values.test }}
+            - echo {{ .Values.test }}
             
   - name: basic2
     steps:
@@ -19,7 +19,7 @@ pipelines:
             type: image
         execution:
           onExecute:
-            - printenv {{ .Values.test }}
+            - echo {{ .Values.test }}
             
   - name: basic3
     steps:
@@ -30,7 +30,7 @@ pipelines:
             type: image
         execution:
           onExecute:
-            - printenv {{ .Values.test }}
+            - echo {{ .Values.test }}
             
   - name: basic4
     steps:
@@ -41,4 +41,4 @@ pipelines:
             type: image
         execution:
           onExecute:
-            - printenv {{ .Values.test }}
+            - echo {{ .Values.test }}
