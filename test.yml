@@ -376,6 +376,7 @@ pipelines:
           - echo "test" > test/test2/test/node_modules/five
           - echo "test" > test/test2/test/node_modules/test/six
           - ls -alR test
+          - ls test/**/node_modules
           - add_cache_files test/**/node_modules test
     - name: stepThree
       type: Bash
