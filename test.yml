@@ -363,7 +363,7 @@ pipelines:
       execution:
         onStart:
           - restore_cache_files test test
-          - ls -al
+          - ls -alR test
           - mkdir -p test/node_modules
           - mkdir -p test/test1/node_modules
           - mkdir -p test/test1/node_modules/test
@@ -375,7 +375,7 @@ pipelines:
           - echo "test" > test/test1/node_modules/test/four
           - echo "test" > test/test2/test/node_modules/five
           - echo "test" > test/test2/test/node_modules/test/six
-          - ls -al
+          - ls -alR test
           - add_cache_files test/**/node_modules test
     - name: stepThree
       type: Bash
