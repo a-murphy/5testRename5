@@ -379,7 +379,7 @@ pipelines:
           - cd test
           - ls **/node_modules
           - find -name node_modules
-          - add_cache_files $(find -name node_modules) test
+          - add_cache_files $(find -name node_modules -printf '%f ') test
     - name: stepThree
       type: Bash
       configuration:
