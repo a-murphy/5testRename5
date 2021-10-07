@@ -366,7 +366,9 @@ pipelines:
           - ls -al
           - mkdir -p test/node_modules
           - mkdir -p test/test1/node_modules
+          - mkdir -p test/test1/node_modules/test
           - mkdir -p test/test2/test/node_modules
+          - mkdir -p test/test2/test/node_modules/test
           - echo "test" > test/node_modules/one
           - echo "test" > test/node_modules/two
           - echo "test" > test/test1/node_modules/three
