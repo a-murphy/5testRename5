@@ -378,7 +378,8 @@ pipelines:
           - ls -alR test
           - cd test
           - ls **/node_modules
-          - add_cache_files **/node_modules test
+          - find -name node_modules
+          - add_cache_files $(find -name node_modules) test
     - name: stepThree
       type: Bash
       configuration:
