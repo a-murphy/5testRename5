@@ -355,6 +355,26 @@ pipelines:
         onStart:
           - sleep 2
           - add_run_files $res_gitRepoResourceAuto_resourcePath test
+    - name: multiDirectoryCache
+      type: Bash
+      configuration:
+        inputResources:
+          - name: gitRepoResourceAuto
+      execution:
+        onStart:
+          - restore_cache_files test test
+          - ls -al
+          - mkdir -p test/node_modules
+          - mkdir -p test/test1/node_modules
+          - mkdir -p test/test2/test/node_modules
+          - echo "test" > test/node_modules/one
+          - echo "test" > test/node_modules/two
+          - echo "test" > test/test1/node_modules/three
+          - echo "test" > test/test1/node_modules/test/four
+          - echo "test" > test/test2/test/node_modules/five
+          - echo "test" > test/test2/test/node_modules/test/six
+          - ls -al
+          - add_cache_files test/**/node_modules test
     - name: stepThree
       type: Bash
       configuration:
