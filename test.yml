@@ -50,9 +50,9 @@ resources:
         pullRequestCreate: true
         releaseCreate: true
         tagCreate: true
-   #   cancelPendingRunsOn:
+      cancelPendingRunsOn:
    #     newCommit: true
-   #     pullRequestUpdate: true
+        pullRequestUpdate: true
      # tags:
      #   include: include.*
   - name: gitRepoResourceAuto
@@ -981,7 +981,6 @@ pipelines:
           affinityGroup: GoTest2
           inputResources:
             - name: gitRepoResource42
-              trigger: false
         execution:
           onExecute:
             - sleep 30
