@@ -51,7 +51,7 @@ resources:
         releaseCreate: true
         tagCreate: true
       cancelPendingRunsOn:
-   #     newCommit: true
+        newCommit: true
         pullRequestUpdate: true
      # tags:
      #   include: include.*
