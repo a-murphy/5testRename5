@@ -1,0 +1,8 @@
+language: none
+env:
+  - one
+  - two
+build:
+  ci:
+   - echo true
+   - cat fakefile.txt
