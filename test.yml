@@ -43,8 +43,8 @@ resources:
       gitProvider: aidan_github
       path: a-murphy/5testRename5
       shallowDepth: 10
-      branches:
-        include: nointegrations
+   #   branches:
+   #     include: nointegrations
       buildOn:
         pullRequestClose: true
         pullRequestCreate: true
