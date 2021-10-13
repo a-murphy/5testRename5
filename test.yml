@@ -327,7 +327,7 @@ pipelines:
             - apt-get remove --purge `dpkg --get-selections | awk '/armhf/{print $1}'`
             - dpkg --remove-architecture armhf
             - dpkg --remove-architecture arm64
-            - apt-get install python3-venv
+            - apt-get install python3-venv --fix-missing
             - python3 -m venv /root/venv/3.7/
             - source /root/venv/3.7/bin/activate
             - retry_command pip3 install -r requirements.txt
