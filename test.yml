@@ -322,6 +322,7 @@ pipelines:
             - name: AWS
         execution:
           onExecute:
+            - apt-get update
             - apt-get install python3-venv
             - python3 -m venv /root/venv/3.7/
             - source /root/venv/3.7/bin/activate
