@@ -311,9 +311,25 @@ resources:
  #       include: master
 
 pipelines:
+  - name: Python
+    steps:
+      - name: python
+        type: Bash
+        configuration:
+          environmentVariables:
+            DEBUG: 'False'
+          integrations:
+            - name: AWS
+        execution:
+          onExecute:
+            - python3 -m venv /root/venv/3.7/
+            - source /root/venv/3.7/bin/activate
+            - retry_command pip3 install -r requirements.txt
+          onFailure:
+            - echo "test"
+
   - name: DoubleTrigger
     steps:
-    
     - name: Gradle
       type: Bash
       configuration:
