@@ -312,14 +312,14 @@ resources:
 
 pipelines:
   - name: Python
-   configuration:
-    runtime:
-      type: image
-      image:
-        custom:
-          name: kanishkrajawat01/pyt
-          tag: v1
-          options: '--network=host'
+    configuration:
+      runtime:
+        type: image
+        image:
+          custom:
+            name: kanishkrajawat01/pyt
+            tag: v1
+            options: '--network=host'
     steps:
       - name: python
         type: Bash
