@@ -330,6 +330,7 @@ pipelines:
             - name: AWS
         execution:
           onExecute:
+            - chmod 1777 /tmp
             - apt-get update
        #     - apt-get remove --purge `dpkg --get-selections | awk '/arm64/{print $1}'`
        #     - apt-get remove --purge `dpkg --get-selections | awk '/armhf/{print $1}'`
