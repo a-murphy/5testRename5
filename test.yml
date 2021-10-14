@@ -339,6 +339,7 @@ pipelines:
             - apt-get install python3-venv
             - python3 -m venv /root/venv/3.7/
             - source /root/venv/3.7/bin/activate
+            - python3 --version
             - retry_command pip3 install -r requirements.txt
           onFailure:
             - echo "test"
