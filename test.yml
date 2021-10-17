@@ -360,7 +360,7 @@ pipelines:
       execution:
         onExecute:
           - ls -alR $custom_certs_dir
-          - jfrog --version
+        #  - jfrog --version
           - jfrog config use aidan_artifactory
           - git clone https://github.com/a-murphy/5testRename5.git
           - pushd "$buildDir"
