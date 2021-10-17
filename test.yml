@@ -347,7 +347,7 @@ pipelines:
     configuration:
       nodePool: default_default
       integrations:
-        - name: aidan_github #mySlack
+        - name: AWS #mySlack
     steps:
     - name: Gradle
       type: Bash
