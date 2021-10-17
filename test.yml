@@ -332,13 +332,9 @@ pipelines:
             - name: AWS
         execution:
           onExecute:
+            - echo "$int_mySlack_name"
             - chmod 1777 /tmp
             - apt-get update
-            - echo "$int_mySlack_name"
-       #     - apt-get remove --purge `dpkg --get-selections | awk '/arm64/{print $1}'`
-       #     - apt-get remove --purge `dpkg --get-selections | awk '/armhf/{print $1}'`
-       #     - dpkg --remove-architecture armhf
-       #     - dpkg --remove-architecture arm64
             - apt-get install python3-venv
             - python3 -m venv /root/venv/3.7/
             - source /root/venv/3.7/bin/activate
