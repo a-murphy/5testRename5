@@ -344,6 +344,10 @@ pipelines:
             - echo "test"
 
   - name: DoubleTrigger
+    configuration:
+      nodePool: default_default
+      integrations:
+        - name: mySlack
     steps:
     - name: Gradle
       type: Bash
