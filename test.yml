@@ -313,6 +313,8 @@ resources:
 pipelines:
   - name: Python
     configuration:
+      integrations:
+        - name: mySlack
       runtime:
         type: image
         image:
@@ -332,6 +334,7 @@ pipelines:
           onExecute:
             - chmod 1777 /tmp
             - apt-get update
+            - echo "$int_mySlack_name"
        #     - apt-get remove --purge `dpkg --get-selections | awk '/arm64/{print $1}'`
        #     - apt-get remove --purge `dpkg --get-selections | awk '/armhf/{print $1}'`
        #     - dpkg --remove-architecture armhf
