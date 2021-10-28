@@ -335,11 +335,11 @@ pipelines:
         execution:
           onExecute:
             - ls -alR $res_testRepo_resourcePath
-            - if [ -f $res_testRepo_resourcePath/testFile ]; cat $res_testRepo_resourcePath/testFile; fi
+            - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
             - mkdir -p /test/cache/${step_name}
             - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
             - cp -r /test/cache/${step_name}/* $res_testRepo_resourcePath
-            - if [ -f $res_testRepo_resourcePath/testFile ]; cat $res_testRepo_resourcePath/testFile; fi
+            - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
             - ls -alR $res_testRepo_resourcePath
             - echo "Run $run_number" > $res_testRepo_resourcePath/testFile
             - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
