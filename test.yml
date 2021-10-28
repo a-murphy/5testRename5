@@ -321,25 +321,28 @@ pipelines:
           custom:
             name: kanishkrajawat01/pyt
             tag: v1
-            options: '--network=host'
+            options: '--network=host -v /test/cache/${step_name}:/test/cache/${step_name}'
     steps:
       - name: python
         type: Bash
         configuration:
           environmentVariables:
             DEBUG: 'False'
-          integrations:
-            - name: AWS
+          inputResources:
+            - name: testRepo
+       #   integrations:
+       #     - name: AWS
         execution:
           onExecute:
-            - echo "$int_mySlack_name"
-            - chmod 1777 /tmp
-            - apt-get update
-            - apt-get install python3-venv
-            - python3 -m venv /root/venv/3.7/
-            - source /root/venv/3.7/bin/activate
-            - python3 --version
-            - retry_command pip3 install -r requirements.txt
+            - ls -alR $res_testRepo_resourcePath
+            - if [ -f $res_testRepo_resourcePath/testFile ]; cat $res_testRepo_resourcePath/testFile; fi
+            - mkdir -p /test/cache/${step_name}
+            - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
+            - cp -r /test/cache/${step_name}/* $res_testRepo_resourcePath
+            - if [ -f $res_testRepo_resourcePath/testFile ]; cat $res_testRepo_resourcePath/testFile; fi
+            - ls -alR $res_testRepo_resourcePath
+            - echo "Run $run_number" > $res_testRepo_resourcePath/testFile
+            - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
           onFailure:
             - echo "test"
 
