@@ -408,7 +408,7 @@ pipelines:
       execution:
         onStart:
           - sleep 2
-   - name: multiDirectoryCache
+    - name: multiDirectoryCache
       type: Bash
       configuration:
         inputResources:
