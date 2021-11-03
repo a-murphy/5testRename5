@@ -352,6 +352,7 @@ pipelines:
 
   - name: DoubleTrigger
     configuration:
+      waitOnParentComplete: true
       nodePool: default_default
       integrations:
         - name: AWS #mySlack
