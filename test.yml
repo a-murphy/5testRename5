@@ -301,6 +301,10 @@ resources:
     type: PropertyBag
     configuration:
       propertyOne: 1
+  - name: properties2
+    type: PropertyBag
+    configuration:
+      propertyOne: 1
 
  # - name: examples_repo
  #   type: GitRepo
@@ -393,7 +397,18 @@ pipelines:
         onStart:
           - sleep 2
           - add_run_files $res_gitRepoResourceAuto_resourcePath test
-    - name: multiDirectoryCache
+    - name: stepOneTwo
+      type: Bash
+      configuration:
+        priority: 1
+        inputResources:
+          - name: properties
+          - name: properties2
+        chronological: true
+      execution:
+        onStart:
+          - sleep 2
+   - name: multiDirectoryCache
       type: Bash
       configuration:
         inputResources:
@@ -747,6 +762,7 @@ pipelines:
         configuration:
           outputResources:
             - name: properties
+            - name: properties2
           affinityGroup: grouptwo
           inputSteps:
             - name: main_step
@@ -756,6 +772,7 @@ pipelines:
           onExecute:
             - sleep 1
             - write_output properties property=${run_number}
+            - write_output properties2 property=${run_number}
       - name: step_4
         type: Bash
         configuration:
@@ -895,10 +912,10 @@ pipelines:
             - name: outputBuildInfo
 
   - name: test_pipeline_11
-   # configuration:   
+    configuration:   
    #   chronological: true
-   #   dependencyMode:
-   #     waitOnParentComplete: true
+      dependencyMode:
+        waitOnParentComplete: true
    #     waitOnChildComplete: "true"
     steps:
       - name: triggered_by_resource
