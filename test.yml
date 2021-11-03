@@ -762,6 +762,7 @@ pipelines:
       - name: step_3
         type: Bash
         configuration:
+          priority: 1
           outputResources:
             - name: properties
             - name: properties2
