@@ -332,6 +332,10 @@ pipelines:
         configuration:
           environmentVariables:
             DEBUG: 'False'
+            TEST_VARIABLE:
+              description: Testing
+              default: "${res_testRepo_resourcePath}"
+              allowCustom: true
           inputResources:
             - name: testRepo
        #   integrations:
