@@ -319,13 +319,13 @@ pipelines:
     configuration:
       integrations:
         - name: mySlack
-      runtime:
-        type: image
-        image:
-          custom:
-            name: kanishkrajawat01/pyt
-            tag: v1
-            options: '--network=host -v /test/cache/${step_name}:/test/cache/${step_name}'
+  #    runtime:
+  #      type: image
+  #      image:
+  #        custom:
+  #          name: kanishkrajawat01/pyt
+  #          tag: v1
+  #          options: '--network=host -v /test/cache/${step_name}:/test/cache/${step_name}'
     steps:
       - name: python
         type: Bash
@@ -342,15 +342,16 @@ pipelines:
        #     - name: AWS
         execution:
           onExecute:
-            - ls -alR $res_testRepo_resourcePath
-            - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
-            - mkdir -p /test/cache/${step_name}
-            - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
-            - cp -r /test/cache/${step_name}/* $res_testRepo_resourcePath
-            - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
-            - ls -alR $res_testRepo_resourcePath
-            - echo "Run $run_number" > $res_testRepo_resourcePath/testFile
-            - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
+      #      - ls -alR $res_testRepo_resourcePath
+            - echo "$TEST_VARIABLE"
+      #      - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
+      #      - mkdir -p /test/cache/${step_name}
+      #      - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
+      #      - cp -r /test/cache/${step_name}/* $res_testRepo_resourcePath
+      #      - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
+      #      - ls -alR $res_testRepo_resourcePath
+      #      - echo "Run $run_number" > $res_testRepo_resourcePath/testFile
+      #      - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
           onFailure:
             - echo "test"
 
