@@ -344,6 +344,7 @@ pipelines:
           onExecute:
       #      - ls -alR $res_testRepo_resourcePath
             - echo "$TEST_VARIABLE"
+            - echo $step_configuration_environmentVariables
       #      - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
       #      - mkdir -p /test/cache/${step_name}
       #      - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
