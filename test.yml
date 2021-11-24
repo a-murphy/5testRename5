@@ -31,6 +31,162 @@ resources:
       sourceArtifactory: aidan_artifactory
       buildName: test
       buildNumber: 1
+  - name: outputDockerBuildInfo5
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo6
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo7
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo8
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo9
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo10
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo11
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo12
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo13
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo14
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo15
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo16
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo17
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo18
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo19
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo20
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo21
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo22
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo23
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo24
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo25
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo26
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo27
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo28
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo29
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
+  - name: outputDockerBuildInfo30
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: aidan_artifactory
+      buildName: test
+      buildNumber: 1
       
 pipelines:
   - name: test_pipeline_1
@@ -134,6 +290,658 @@ pipelines:
             - name: outputDockerBuildInfo4
           integrations:
             - name: aidan_artifactory
+            
+  - name: test_pipeline_5
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage5
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo5
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_6
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage6
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo6
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_7
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage7
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo7
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_8
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage8
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo8
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_9
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage9
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo9
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_10
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage10
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo10
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_11
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage11
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo11
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_12
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage12
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo12
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_13
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage13
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo13
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_14
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage14
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo14
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_15
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage15
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo15
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_16
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage16
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo16
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_17
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage17
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo17
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_18
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage18
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo18
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_19
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage19
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo19
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_20
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage20
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo20
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_21
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage21
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo21
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_22
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage22
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo22
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_23
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage23
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo23
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_24
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage24
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo24
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_25
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage25
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo25
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_26
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage26
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo26
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_27
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage27
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo27
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_28
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage28
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo28
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_29
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage29
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo29
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_30
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: group
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage30
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: group
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo30
+          integrations:
+            - name: aidan_artifactory
+            
+            
             
             
             
