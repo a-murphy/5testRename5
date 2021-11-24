@@ -40,7 +40,7 @@ pipelines:
         configuration:
  #         dockerFileLocation: .
  #         dockerFileName: Dockerfile
-          dockerImageName: hts1.jfrog.io/docker-local/pipelinestestimage
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage
           dockerImageTag: $run_number
           dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
           inputResources:
