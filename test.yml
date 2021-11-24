@@ -38,6 +38,7 @@ pipelines:
       - name: docker_build
         type: DockerBuild
         configuration:
+          affinityGroup: group
  #         dockerFileLocation: .
  #         dockerFileName: Dockerfile
           dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage
@@ -49,6 +50,7 @@ pipelines:
       - name: docker_push
         type: DockerPush
         configuration:
+          affinityGroup: group
           targetRepository: docker-local
           autoPublishBuildInfo: true
           inputSteps:
@@ -63,6 +65,7 @@ pipelines:
       - name: docker_build
         type: DockerBuild
         configuration:
+          affinityGroup: group
           dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage2
           dockerImageTag: $run_number
           dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
@@ -72,6 +75,7 @@ pipelines:
       - name: docker_push
         type: DockerPush
         configuration:
+          affinityGroup: group
           targetRepository: docker-local
           autoPublishBuildInfo: true
           inputSteps:
@@ -86,6 +90,7 @@ pipelines:
       - name: docker_build
         type: DockerBuild
         configuration:
+          affinityGroup: group
           dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage3
           dockerImageTag: $run_number
           dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
@@ -95,6 +100,7 @@ pipelines:
       - name: docker_push
         type: DockerPush
         configuration:
+          affinityGroup: group
           targetRepository: docker-local
           autoPublishBuildInfo: true
           inputSteps:
@@ -109,6 +115,7 @@ pipelines:
       - name: docker_build
         type: DockerBuild
         configuration:
+          affinityGroup: group
           dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage4
           dockerImageTag: $run_number
           dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
@@ -118,6 +125,7 @@ pipelines:
       - name: docker_push
         type: DockerPush
         configuration:
+          affinityGroup: group
           targetRepository: docker-local
           autoPublishBuildInfo: true
           inputSteps:
