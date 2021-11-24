@@ -58,5 +58,77 @@ pipelines:
           integrations:
             - name: aidan_artifactory
             
+  - name: test_pipeline_2
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage2
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo2
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_3
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage3
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo3
+          integrations:
+            - name: aidan_artifactory
+            
+  - name: test_pipeline_4
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          dockerImageName: hts1-docker-local.jfrog.io/docker-local/pipelinestestimage4
+          dockerImageTag: $run_number
+          dockerOptions: "--build-arg RUN_NUMBER=${run_number}"
+          inputResources:
+            - name: gitRepoResourceDocker
+              trigger: false
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          targetRepository: docker-local
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: docker_build
+          outputResources:
+            - name: outputDockerBuildInfo4
+          integrations:
+            - name: aidan_artifactory
+            
+            
+            
+            
            
       
