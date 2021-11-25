@@ -342,7 +342,7 @@ pipelines:
        #     - name: AWS
         execution:
           onExecute:
-            - docker compose -f compose up -d
+            - docker-compose -f compose up -d
             - |
               while ! curl -s http://127.0.0.1:9200/_cat/health | grep "green" 2>&1; do
                 echo "Waiting for Elasticsearch to start...";
