@@ -252,6 +252,7 @@ resources:
     configuration:
       gitProvider: aidan_github
       path: a-murphy/5testRename5
+      branch: nointegrations
       buildOn:
          commit: true
          pullRequestCreate: false
