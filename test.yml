@@ -319,13 +319,13 @@ pipelines:
     configuration:
       integrations:
         - name: mySlack
-  #    runtime:
-  #      type: image
-  #      image:
-  #        custom:
-  #          name: kanishkrajawat01/pyt
-  #          tag: v1
-  #          options: '--network=host -v /test/cache/${step_name}:/test/cache/${step_name}'
+      runtime:
+        type: image
+        image:
+          custom:
+            name: kanishkrajawat01/pyt
+            tag: v1
+            options: '--network=host -v /test/cache/${step_name}:/test/cache/${step_name}'
     steps:
       - name: python
         type: Bash
@@ -342,9 +342,15 @@ pipelines:
        #     - name: AWS
         execution:
           onExecute:
+            - docker compose -f compose up -d
+            - |
+              while ! curl -s http://127.0.0.1:9200/_cat/health | grep "green" 2>&1; do
+                echo "Waiting for Elasticsearch to start...";
+                sleep 1;
+              done
       #      - ls -alR $res_testRepo_resourcePath
             - echo "$TEST_VARIABLE"
-            - echo $step_configuration_environmentVariables
+      #      - echo $step_configuration_environmentVariables
       #      - if [ -f $res_testRepo_resourcePath/testFile ]; then cat $res_testRepo_resourcePath/testFile; fi
       #      - mkdir -p /test/cache/${step_name}
       #      - cp -r $res_testRepo_resourcePath/* /test/cache/${step_name}
