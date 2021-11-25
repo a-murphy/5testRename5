@@ -344,6 +344,7 @@ pipelines:
        #     - name: AWS
         execution:
           onExecute:
+            - cd $res_testRepo_resourcePath
             - docker-compose -f compose up -d
             - |
               while ! curl -s http://127.0.0.1:9200/_cat/health | grep "green" 2>&1; do
