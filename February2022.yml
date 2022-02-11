@@ -1,0 +1,44 @@
+pipelines:
+  - name: pipeline
+    configuration:
+      environmentVariables:
+        readOnly:
+          unitTest:
+            default: "Yes"
+            description: Run Unit Tests
+            values:
+              - "Yes"
+              - "No"
+          other:
+            default: 1-1
+            description: Tests
+            values:
+              - 1-1
+              - 1-2
+              - 1-3
+              - 1-4
+    steps:
+      - name: Trigger
+        type: Bash
+        configuration:
+          affinityGroup: test
+        execution:
+          onStart:
+            - echo "Triggering"
+            - echo "unitTest=$unitTest"
+            - echo "other=$other"
+          onExecute:
+            - add_run_variables testing="testing1234"
+
+      - name: Step_One
+        type: Bash
+        configuration:
+          affinityGroup: test
+          inputSteps:
+            - name: Trigger
+          runtime:
+            type: host
+        execution:
+          onExecute:
+            - echo "unitTest=$unitTest"
+            - if [[ $unitTest == Yes ]]; then echo "Testing"; fi
