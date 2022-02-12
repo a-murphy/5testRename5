@@ -1252,6 +1252,8 @@ pipelines:
             - 'echo "step_node_name: $step_node_name"'
             - 'echo "step_node_id: $step_node_id"'
             - 'echo "step_node_pool_name: $step_node_pool_name"'
+            - echo "step 1 is running"
+            - echo $?
             - echo $PATH
             - which jq
             - replicate_resource nodeRepoResource2 nodeRepoResource4 --match-settings
