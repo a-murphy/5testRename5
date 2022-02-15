@@ -245,6 +245,8 @@ resources:
       gitProvider: aidan_github
       path: a-murphy/vue-frontend
       shallowDepth: 1
+      branches:
+        include: master
       buildOn:
          commit: false
   - name: testRepo
