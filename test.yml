@@ -243,7 +243,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: aidan_github
-      path: a-murphy/vue-frontend
+      path: a-murphy/sample_node
       shallowDepth: 1
       branches:
         include: master
