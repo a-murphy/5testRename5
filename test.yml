@@ -239,7 +239,7 @@ resources:
       shallowDepth: 1
       buildOn:
          commit: false
-  - name: nodeRepoResource3
+  - name: nodeRepoResource5
     type: GitRepo
     configuration:
       gitProvider: aidan_github
@@ -1031,7 +1031,7 @@ pipelines:
           inputSteps:
             - name: Go
           inputResources:
-            - name: nodeRepoResource3
+            - name: nodeRepoResource5
               trigger: false
           integrations:
             - name: aidan_artifactory
