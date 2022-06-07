@@ -28,9 +28,6 @@ pipelines:
         configuration:
           runtime:        
             type: image
-            image:
-              auto:
-                language: none      
           inputSteps:
             - name: trigger_step
         execution:
